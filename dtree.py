@@ -1,5 +1,5 @@
 import sys
-
+import math
 #psuedo code, to work for continous values
 #if examples is empty then return default
 #else if all examples have the same class then return the class
@@ -11,6 +11,25 @@ import sys
 #   tree.left_child = DTL(examples_left, attributes, DISTRIBUTION(examples))
 #   tree.right_child = DTL(examples_right, attributes, DISTRIBUTION(examples))
 #return tree
+
+
+#A is integer representing the column (attribute)
+def information_gain(examples,A,threshold):
+    examples_left = []
+    examples_right = []
+
+    for idx in range(len(examples)):
+        val = examples[idx][A]
+        if val < threshold:
+            examples_left.append(val)
+        else:
+            examples_right.append(val)
+
+    r = len(examples_left)/len(examples)
+    H_e = -(r*math.log(r)) - (r*math.log(r))
+
+    for idx in range(len(examples_left)):
+        
 
 def dtl(examples,attributes,class_set,default):
     pass           
