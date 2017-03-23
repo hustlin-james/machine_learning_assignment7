@@ -1,1 +1,3 @@
-python dtree.py pendigits_training pendigits_test 0 0
+python dtree.py pendigits_training pendigits_test optimized 50
+python dtree.py pendigits_training pendigits_test randomized 50
+python dtree.py pendigits_training pendigits_test forest3 50
