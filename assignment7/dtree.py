@@ -41,16 +41,29 @@ def classify(n,row):
     else:
         return n
 
-def training_ouput(n,tree_id):
-    if n.left_child == None and n.right_child == None:
-        print("tree=%2d, node=%3d, feature=%2d, thr=%6.2lf, gain=%lf"%(tree_id,n.node_id,n.attribute,n.threshold,n.information_gain))
-    else:
+ 
+def training_ouput(root,tree_id):
+
+    stack = [root]
+    while stack:
+        n = stack[0]
+        stack = stack[1:]
         print("tree=%2d, node=%3d, feature=%2d, thr=%6.2lf, gain=%lf"%(tree_id,n.node_id,n.attribute,n.threshold,n.information_gain))
         if(n.left_child != None):
-            training_ouput(n.left_child,tree_id)
-        
+            stack.append(n.left_child)
         if(n.right_child != None):
-            training_ouput(n.right_child,tree_id)
+            stack.append(n.right_child)
+            
+# def training_ouput(n,tree_id):
+#     if n.left_child == None and n.right_child == None:
+#         print("tree=%2d, node=%3d, feature=%2d, thr=%6.2lf, gain=%lf"%(tree_id,n.node_id,n.attribute,n.threshold,n.information_gain))
+#     else:
+#         print("tree=%2d, node=%3d, feature=%2d, thr=%6.2lf, gain=%lf"%(tree_id,n.node_id,n.attribute,n.threshold,n.information_gain))
+#         if(n.left_child != None):
+#             training_ouput(n.left_child,tree_id)
+        
+#         if(n.right_child != None):
+#             training_ouput(n.right_child,tree_id)
 
 
 def choose_attribute(examples,attributes):
